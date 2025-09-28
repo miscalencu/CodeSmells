@@ -63,4 +63,3 @@ Excessive coupling between classes.
 
 Browse **Smells/** to see an example of a bad pattern.
 Browse **Refactored/** for the improved version.
-Run the program (`dotnet run`) to see a simple demonstration (`LongMethod` example).

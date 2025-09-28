@@ -1,4 +1,4 @@
-﻿namespace Refactored.ObjectOrientationAbusers;
+﻿namespace CodeSmells.Refactored.ObjectOrientationAbusers;
 
 public interface ILogger
 {

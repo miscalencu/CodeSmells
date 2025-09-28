@@ -1,4 +1,4 @@
-﻿namespace Smells.ObjectOrientationAbusers;
+﻿namespace CodeSmells.Smells.ObjectOrientationAbusers;
 
 /// <summary>
 /// Two classes perform identical functions but have different method names.
