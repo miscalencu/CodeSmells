@@ -1,16 +1,23 @@
-﻿public class PdfReportGeneratorRefactored
+﻿namespace CodeSmells.Refactored.Dispensables;
+
+public abstract class ReportGenerator
 {
-    public void GenerateReport()
+    public abstract void GenerateReport();
+}
+
+public class PdfReportGenerator : ReportGenerator
+{
+    public override void GenerateReport()
     {
         Console.WriteLine("Generating PDF report...");
     }
 }
 
-public class AppRefactored
+public class GenerateService
 {
-    public void Run()
+    public void Generate()
     {
-        var generator = new PdfReportGeneratorRefactored();
+        var generator = new PdfReportGenerator();
         generator.GenerateReport();
     }
 }

@@ -1,8 +1,11 @@
-namespace CodeSmells.Smells.Dispensables
+namespace CodeSmells.Smells.Dispensables;
+
+/// <summary>
+/// A variable, parameter, field, method or class is no longer used (usually because it’s obsolete).
+/// </summary>
+public class DeadCode
 {
-    public class Dead
-    {
-        public void OldMethod()
-        { }
-    }
+    public void OldMethod() { }
+
+    public int NotUsed { get; set; }
 }

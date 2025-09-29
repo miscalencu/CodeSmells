@@ -1,4 +1,12 @@
-namespace CodeSmells.Refactored.Dispensables
+namespace CodeSmells.Refactored.Dispensables;
+
+public class Order
 {
-    // Removed unused class
+    public decimal Amount { get; set; }
+
+    public decimal GetFinalAmount()
+    {
+        // Inline the simple behavior
+        return Amount * 0.9m;
+    }
 }

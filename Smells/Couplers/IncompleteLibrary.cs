@@ -1,6 +1,11 @@
-﻿public class Appl
+﻿namespace CodeSmells.Smells.Couplers;
+
+/// <summary>
+/// Library that doesn't provide needed functionality.
+/// </summary>
+public class IncompleteLibrary
 {
-    public void Run()
+    public void CheckDate()
     {
         var today = DateTime.Now;
 

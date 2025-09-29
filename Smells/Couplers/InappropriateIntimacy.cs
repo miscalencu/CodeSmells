@@ -1,15 +1,23 @@
-namespace CodeSmells.Smells.Couplers
-{
-    public class ClassA
-    {
-        public int secret = 42;
-    }
+namespace CodeSmells.Smells.Couplers;
 
-    public class ClassB
+/// <summary>
+/// One class uses the internal fields and methods of another class.
+/// </summary>
+public class Customer
+{
+    public string Name { get; set; }
+    public decimal DiscountRate { get; set; }
+}
+
+public class LoyaltyService
+{
+    public decimal CalculateDiscount(Customer customer)
     {
-        public void Leak(ClassA a)
+        // Inappropriate Intimacy: digging too deeply into Customer's internals
+        if (customer.DiscountRate > 0.1m)
         {
-            Console.WriteLine(a.secret);
+            return customer.DiscountRate * 0.9m;
         }
+        return customer.DiscountRate;
     }
 }

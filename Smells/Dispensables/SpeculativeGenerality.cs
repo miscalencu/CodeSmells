@@ -1,4 +1,6 @@
-﻿// An abstract base class, even though we only have one implementation.
+﻿namespace CodeSmells.Smells.Dispensables;
+
+// An abstract base class, even though we only have one implementation.
 // The "generalization" is speculative, not real.
 public abstract class ReportGenerator
 {
@@ -19,11 +21,11 @@ public class PdfReportGenerator : ReportGenerator
     }
 }
 
-public class App
+public class GenerateService
 {
-    public void Run()
+    public void Generate()
     {
         ReportGenerator generator = new PdfReportGenerator();
-        generator.GenerateReport(); // Always PDF
+        generator.GenerateReport(); // Always sync, always PDF
     }
 }

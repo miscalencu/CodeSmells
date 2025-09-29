@@ -1,26 +1,29 @@
-namespace CodeSmells.Smells.Couplers
+namespace CodeSmells.Smells.Couplers;
+
+/// <summary>
+/// In code you see a series of calls resembling $a->b()->c()->d()
+/// </summary>
+public class Address
 {
-    public class AA
-    {
-        public BB B = new BB();
-    }
+    public string City { get; set; }
+}
 
-    public class BB
-    {
-        public CC C = new CC();
-    }
+public class User
+{
+    public Address Address { get; set; }
+}
 
-    public class CC
-    {
-        public void Do()
-        { }
-    }
+public class Shipment
+{
+    public User User { get; set; }
+}
 
-    public class Client
+public class ShippingService
+{
+    public void Ship(Shipment shipment)
     {
-        public void Use(AA a)
-        {
-            a.B.C.Do();
-        }
+        // Message Chain: digging through multiple objects
+        string city = shipment.User.Address.City;
+        Console.WriteLine($"Shipping to {city}");
     }
 }

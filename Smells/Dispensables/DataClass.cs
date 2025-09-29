@@ -1,8 +1,20 @@
-namespace CodeSmells.Smells.Dispensables
+namespace CodeSmells.Smells.Dispensables;
+
+/// <summary>
+/// A class has only fields and trivial getters/setters, but no real behavior.
+/// </summary>
+public class Customer
 {
-    public class Data
+    // Data Class: only data, no behavior
+    public string Name { get; set; }
+    public int LoyaltyPoints { get; set; }
+}
+
+public class LoyaltyService
+{
+    public void AddPoints(Customer customer, int points)
     {
-        public string Name;
-        public int Age;
+        // Behavior is outside, manipulating Customer's state
+        customer.LoyaltyPoints += points;
     }
 }

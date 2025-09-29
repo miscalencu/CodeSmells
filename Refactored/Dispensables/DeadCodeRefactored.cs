@@ -1,4 +1,9 @@
-namespace CodeSmells.Refactored.Dispensables
+namespace CodeSmells.Refactored.Dispensables;
+
+/// <summary>
+/// Remove unused methods and properties
+/// </summary>
+public class DeadCode
 {
-    // Removed unused class
+    
 }

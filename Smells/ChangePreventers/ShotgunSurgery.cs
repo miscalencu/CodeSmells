@@ -3,6 +3,7 @@ namespace CodeSmells.Smells.ChangePreventers;
 /// <summary>
 /// When making one conceptual change requires modifying many different classes scattered throughout the codebase.
 /// </summary>
+
 // Bad - Adding tax calculation requires changes in many classes
 public class Invoice
 {

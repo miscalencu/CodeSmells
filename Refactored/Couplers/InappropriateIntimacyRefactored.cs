@@ -1,17 +1,20 @@
-namespace CodeSmells.Refactored.Couplers
+namespace CodeSmells.Refactored.Couplers;
+public class Customer
 {
-    public class ClassA
-    {
-        private int secret = 42;
+    public string Name { get; set; }
+    public decimal DiscountRate { get; set; }
 
-        public int GetSecret() => secret;
+    public decimal GetEffectiveDiscount()
+    {
+        return DiscountRate > 0.1m ? DiscountRate * 0.9m : DiscountRate;
     }
+}
 
-    public class ClassB
+public class LoyaltyService
+{
+    public decimal CalculateDiscount(Customer customer)
     {
-        public void Show(ClassA a)
-        {
-            Console.WriteLine(a.GetSecret());
-        }
+        // Just use the Customer's own encapsulated behavior
+        return customer.GetEffectiveDiscount();
     }
 }

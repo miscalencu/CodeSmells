@@ -1,29 +1,17 @@
-namespace CodeSmells.Refactored.Couplers
+namespace CodeSmells.Refactored.Couplers;
+
+public class Order
 {
-    public class Order
+    public decimal Price { get; set; }
+    public int Quantity { get; set; }
+
+    public decimal GetTotal() => Price * Quantity;
+}
+
+public class InvoicePrinter
+{
+    public void PrintOrder(Order order)
     {
-        public string CustomerName
-        {
-            get;
-        }
-
-        public decimal Amount
-        {
-            get;
-        }
-
-        public DateTime Date
-        {
-            get;
-        }
-
-        public Order(string c, decimal a, DateTime d)
-        {
-            CustomerName = c;
-            Amount = a;
-            Date = d;
-        }
-
-        public void Print() => Console.WriteLine(CustomerName + Amount + Date);
+        Console.WriteLine($"Order total: {order.GetTotal()}");
     }
 }

@@ -1,27 +1,26 @@
-namespace CodeSmells.Refactored.Dispensables
+namespace CodeSmells.Refactored.Dispensables;
+
+public abstract class Shape
 {
-    public abstract class Shape
-    {
-        public abstract double GetArea();
-    }
+    public abstract double GetArea();
+}
 
-    public class Rectangle : Shape
-    {
-        public double Width;
-        public double Height;
+public class Rectangle : Shape
+{
+    public double Width;
+    public double Height;
 
-        public override double GetArea() => Width * Height;
-    }
+    public override double GetArea() => Width * Height;
+}
 
-    public class Square : Rectangle
+public class Square : Rectangle
+{
+    public double Side
     {
-        public double Side
+        get => Width;
+        set
         {
-            get => Width;
-            set
-            {
-                Width = Height = value;
-            }
+            Width = Height = value;
         }
     }
 }

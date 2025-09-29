@@ -1,26 +1,33 @@
-namespace CodeSmells.Refactored.Couplers
+namespace CodeSmells.Refactored.Couplers;
+
+/// <summary>
+/// Tell, Don't Ask: Instead of asking an object for data and then using that data to make decisions, ask the object to perform the action for you.
+/// </summary>
+public class Address
 {
-    public class AA
+    public string City { get; set; }
+}
+
+public class User
+{
+    public Address Address { get; set; }
+
+    public string GetCity() => Address.City;
+}
+
+public class Shipment
+{
+    public User User { get; set; }
+
+    public string GetShippingCity() => User.GetCity();
+}
+
+public class ShippingService
+{
+    public void Ship(Shipment shipment)
     {
-        private BB B = new BB();
-
-        public void Do() => B.Do();
-    }
-
-    public class BB
-    {
-        private CC C = new CC();
-
-        public void Do() => C.Do();
-    }
-
-    public class CC
-    {
-        public void Do() => Console.WriteLine("Work");
-    }
-
-    public class Client
-    {
-        public void Use(AA a) => a.Do();
+        // No chain — just ask the order
+        string city = shipment.GetShippingCity();
+        Console.WriteLine($"Shipping to {city}");
     }
 }

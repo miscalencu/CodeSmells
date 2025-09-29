@@ -3,6 +3,7 @@ namespace CodeSmells.Smells.ChangePreventers;
 /// <summary>
 /// Parallel Inheritance Hierarchy is a classic smell where every time you add a subclass to one hierarchy, you’re forced to add a corresponding subclass in another.
 /// </summary>
+
 // Payment Methods
 public abstract class PaymentMethod { }
 public class CreditCard : PaymentMethod { }

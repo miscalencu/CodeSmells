@@ -1,20 +1,15 @@
-namespace CodeSmells.Refactored.Dispensables
+namespace CodeSmells.Refactored.Dispensables;
+
+/// <summary>
+/// Behavior inside the class
+/// </summary>
+public class Customer
 {
-    public class Person
+    public string Name { get; set; }
+    public int LoyaltyPoints { get; private set; }
+
+    public void AddPoints(int points)
     {
-        private string _name;
-        private int _age;
-
-        public Person(string name, int age)
-        {
-            _name = name;
-            _age = age;
-        }
-
-        public void CelebrateBirthday()
-        {
-            _age++;
-            Console.WriteLine($"{_name} is now {_age}");
-        }
+        LoyaltyPoints += points;
     }
 }

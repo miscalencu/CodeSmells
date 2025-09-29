@@ -1,4 +1,9 @@
-﻿public static class DateTimeExtensions
+﻿namespace CodeSmells.Refactored.Couplers;
+
+/// <summary>
+/// Extension Method instead of 'helper' class
+/// </summary>
+public static class DateTimeExtensions
 {
     public static bool IsWeekend(this DateTime date)
     {
@@ -6,9 +11,9 @@
     }
 }
 
-public class ApplRefactored
+public class IncompleteLibraryRefactored
 {
-    public void Run()
+    public void CheckDate()
     {
         var today = DateTime.Now;
 

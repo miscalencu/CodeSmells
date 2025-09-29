@@ -1,7 +1,5 @@
-namespace CodeSmells.Refactored.Dispensables
+namespace CodeSmells.Refactored.Dispensables;
+public class Calculator
 {
-    public class Calculator
-    {
-        public int Add(int a, int b) => a + b;
-    }
+    public int Add(int a, int b) => a + b;
 }
